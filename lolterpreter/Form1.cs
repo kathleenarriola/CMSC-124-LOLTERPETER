@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace lolterpreter
 {
@@ -46,12 +47,40 @@ namespace lolterpreter
                     string text = File.ReadAllText(file);
                     size = text.Length;
 
+                    textBox1.Text = text;
+
                     //split per line
                     string[] perLine = text.Split('\n');
                     foreach (string word in perLine)
                     {
-                        textBox1.AppendText(word + '*');
+                        Regex delimiter = new Regex(@"^(?<hi>HAI|KTHXBYE)");
+                        Match match = delimiter.Match(word);
+
+                        if (match.Success)
+                        {
+                            LexemeTable.Rows.Add(match.Groups["hi"].Value, "Program Delimeter");
+                            
+                        }
+
+                        Regex gimmeh = new Regex(@"^(?<gimmeh>GIMMEH)\s(?<vari>.+)");
+                        match = gimmeh.Match(word);
+                        if (match.Success)
+                        {
+                            LexemeTable.Rows.Add(match.Groups["gimmeh"].Value, "Input Keyword");
+                            LexemeTable.Rows.Add(match.Groups["vari"].Value, "Variable name");
+
+                        }
+
+                        Regex visLit = new Regex("^(?<vis>VISIBLE) (?<d1>\")(?<vari>.+)(?< d1 >\")");
+                        match = gimmeh.Match(word);
+                        if (match.Success)
+                        {
+                            LexemeTable.Rows.Add(match.Groups["gimmeh"].Value, "Input Keyword");
+                            LexemeTable.Rows.Add(match.Groups["vari"].Value, "Variable name");
+
+                        }
                     }
+                    
                 }
                 catch (IOException)
                 {

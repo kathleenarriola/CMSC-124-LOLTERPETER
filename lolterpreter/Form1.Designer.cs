@@ -34,15 +34,17 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.LexemeTable = new System.Windows.Forms.DataGridView();
+            this.Lexeme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Classification = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LexemeTable)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -98,22 +100,6 @@
             this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Symbol Table";
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(287, 38);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(189, 230);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "label4";
-            // 
-            // vScrollBar1
-            // 
-            this.vScrollBar1.Location = new System.Drawing.Point(483, 91);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(17, 80);
-            this.vScrollBar1.TabIndex = 7;
             // 
             // tableLayoutPanel1
             // 
@@ -178,16 +164,41 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // LexemeTable
+            // 
+            this.LexemeTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.LexemeTable.BackgroundColor = System.Drawing.Color.White;
+            this.LexemeTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.LexemeTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.LexemeTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Lexeme,
+            this.Classification});
+            this.LexemeTable.Location = new System.Drawing.Point(281, 39);
+            this.LexemeTable.Name = "LexemeTable";
+            this.LexemeTable.RowHeadersVisible = false;
+            this.LexemeTable.RowTemplate.ReadOnly = true;
+            this.LexemeTable.Size = new System.Drawing.Size(199, 232);
+            this.LexemeTable.TabIndex = 12;
+            // 
+            // Lexeme
+            // 
+            this.Lexeme.HeaderText = "Lexeme";
+            this.Lexeme.Name = "Lexeme";
+            // 
+            // Classification
+            // 
+            this.Classification.HeaderText = "Classification";
+            this.Classification.Name = "Classification";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 519);
+            this.Controls.Add(this.LexemeTable);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.vScrollBar1);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
@@ -199,6 +210,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LexemeTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,14 +224,15 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.DataGridView LexemeTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lexeme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Classification;
     }
 }
 
